@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    tools:context=".activity.HomePageActivity">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:weightSum="4">
+        <TextView
+            android:id="@+id/sos"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="SOS"
+            style="@style/ViewStyle"
+            android:background="@drawable/view_background"
+            android:clickable="true"
+            />
+        <TextView
+            android:id="@+id/watch_friend"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="Watch Friend's Location"
+            style="@style/ViewStyle"
+            android:background="@drawable/view_background"
+            android:clickable="true"
+            />
+        <TextView
+            android:id="@+id/findSafeRoute"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            style="@style/ViewStyle"
+            android:text="Find Safest Route"
+            android:background="@drawable/view_background"
+            android:clickable="true"
+            />
+        <TextView
+            android:id="@+id/reportCrime"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            style="@style/ViewStyle"
+            android:text="Report Crime"
+            android:background="@drawable/view_background"
+            android:clickable="true"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:weightSum="4">
+        <TextView
+            android:id="@+id/trackMe"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            style="@style/ViewStyle"
+            android:text="Track Me"
+            android:background="@drawable/view_background"
+            android:clickable="true"/>
+        <TextView
+            android:id="@+id/barcode"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            style="@style/ViewStyle"
+            android:text="barcode"
+            android:background="@drawable/view_background"
+            android:clickable="true"/>
+        <TextView
+            android:id="@+id/manageFriendList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            style="@style/ViewStyle"
+            android:text="Manage Friend List"
+            android:background="@drawable/view_background"
+            android:clickable="true"/>
+        <TextView
+            android:id="@+id/crimeStatistics"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            style="@style/ViewStyle"
+            android:text="Crime Statistics"
+            android:background="@drawable/view_background"
+            android:clickable="true"/>
+    </LinearLayout>
+
+</LinearLayout>

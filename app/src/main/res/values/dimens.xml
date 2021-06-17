@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="topmargin">10dp</dimen>
+    <dimen name="marginview">10dp</dimen>
+    <dimen name="viewfont">20sp</dimen>
+    <dimen name="marginleftright">20dp</dimen>
+</resources>

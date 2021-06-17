@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".activity.AplashScreen">
+
+    <RelativeLayout
+        android:id="@+id/spacebelow"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_marginBottom="30dp"
+        >
+        <TextView
+            android:id="@+id/orgName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Safe Go"
+            android:textColor="@color/blue"
+            android:textSize="25sp"
+            android:fontFamily="@font/titillium_semibold"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:maxWidth="200dp"
+            android:maxHeight="200dp"
+            android:scaleType="fitCenter"
+            android:layout_centerInParent="true"
+            android:id="@+id/logo"
+            android:layout_centerVertical="true"
+            android:src="@drawable/safegolog"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>

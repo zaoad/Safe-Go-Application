@@ -1,0 +1,11 @@
+<resources>
+    <string name="google_maps_key">AIzaSyB6WDOZpF3pGluGoC-F1IOmG_nKjcc7eNE</string>
+    <string name="app_name">SafeGo</string>
+    <string name="Gender">Gender</string>
+    <string name="sign_up">sign up</string>
+    <string name="password">Password</string>
+    <string name="re_enter_password">re enter password</string>
+    <string name="start_tracking">Start Tracking</string>
+    <string name="location_sending">Location Sending</string>
+    <string name="send_notification">SEND NOTIFICATION</string>
+</resources>

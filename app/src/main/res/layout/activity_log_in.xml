@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="@color/white"
+    tools:context=".activity.LogIn">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:gravity="center"
+        android:textSize="35sp"
+        android:textColor="@color/blue"
+        android:fontFamily="@font/titillium_semibold"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LOGIN "
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/blue"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/titillium_semibold"
+        />
+
+    <com.google.android.material.textfield.TextInputEditText
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/phoneNumberEditTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:inputType="number"
+        android:hint="UserName"
+        android:backgroundTint="@color/blue"
+        android:fontFamily="@font/titillium_regular"
+        android:textCursorDrawable="@drawable/cursor"
+        />
+
+    <com.google.android.material.textfield.TextInputEditText
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/passwordEditTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:hint="Password"
+        android:backgroundTint="@color/blue"
+        android:fontFamily="@font/titillium_regular"
+        android:textCursorDrawable="@drawable/cursor"
+        />
+
+    <Button
+        android:id="@+id/logInBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_background_blue"
+        android:text="Login"
+        android:textColor="@color/white"
+        android:fontFamily="@font/titillium_semibold"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"/>
+
+    <ProgressBar
+        android:id="@+id/vCodeProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="@color/yellow"
+        android:visibility="invisible"
+        android:layout_marginTop="60dp"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="do not have an account?"
+            android:layout_gravity="center"
+            android:textSize="11sp"
+            android:textColor="@color/black"
+            />
+        <TextView
+            android:id="@+id/signUp"
+            android:layout_marginLeft="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blue"
+            android:textSize="12sp"
+            android:fontFamily="@font/titillium_semibold"
+            android:text="Sign up"
+            android:clickable="true"/>
+    </LinearLayout>
+
+</LinearLayout>
+
+
+
+
+
+

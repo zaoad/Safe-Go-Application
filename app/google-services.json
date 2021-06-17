@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "252858436251",
+    "project_id": "safego-3d14b",
+    "storage_bucket": "safego-3d14b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252858436251:android:90c23b33499dececc4143e",
+        "android_client_info": {
+          "package_name": "com.example.safego"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "252858436251-nejqi0coog5u2ee62k3l3b5ak8hir2jr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.safego",
+            "certificate_hash": "9211888bc225e5029af52db74b2bf6a3917b96f9"
+          }
+        },
+        {
+          "client_id": "252858436251-7idkbiehmte22ue7gd2q4jse1nnh2qtk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhocXaTkab-ZpIVI-PYERzGnw0C-YniMM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "252858436251-7idkbiehmte22ue7gd2q4jse1nnh2qtk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
