@@ -60,6 +60,8 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
     private String sexStr;
 
     private String passwordStr;
+
+    private String rePasswordStr;
     SharedPrefHelper sharedPrefHelper;
 
     @Override
@@ -90,6 +92,8 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
                 phoneNumberStr=phoneNumber.getText().toString();
                 ageStr=age.getText().toString();
                 sexStr=isManOrWomanSpinner.getSelectedItem().toString();
+                passwordStr=password.getText().toString();
+                rePasswordStr=repassword.getText().toString();
                 if(isValidInput()) {
                     progressBar.setVisibility(View.VISIBLE);
                     UserInfo userInfo = new UserInfo();
@@ -207,6 +211,16 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         if(sexStr.equals("Select")||sexStr.equals(""))
         {
             Commons.showToast(getApplicationContext(),"Select gender");
+            return false;
+        }
+        if(passwordStr.equals("")||passwordStr.length()<6)
+        {
+            Commons.showToast(getApplicationContext(),"password must be minimum 6 letter");
+            return false;
+        }
+        if(!passwordStr.equals(rePasswordStr))
+        {
+            Commons.showToast(getApplicationContext(),"password not match");
             return false;
         }
         return  true;

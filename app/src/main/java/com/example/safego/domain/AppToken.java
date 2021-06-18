@@ -1,7 +1,9 @@
 package com.example.safego.domain;
 
 
-public class AppToken {
+import java.io.Serializable;
+
+public class AppToken implements Serializable {
 
     private String id;
 

@@ -80,7 +80,7 @@ public class SosActivity extends AppCompatActivity {
         else{
             mobileNumberList.add(n1);
         }
-        if(n2==null||n2=="")
+        if(n2==null||n2.equals(""))
         {
             n2="";
             layout3.setVisibility(View.INVISIBLE);
@@ -89,7 +89,7 @@ public class SosActivity extends AppCompatActivity {
         else{
             mobileNumberList.add(n2);
         }
-        if(n3==null||n3=="")
+        if(n3==null||n3.equals(""))
         {
             n3="";
             layout4.setVisibility(View.INVISIBLE);
@@ -98,7 +98,7 @@ public class SosActivity extends AppCompatActivity {
         else{
             mobileNumberList.add(n3);
         }
-        if(n4==null||n4=="")
+        if(n4==null||n4.equals(""))
         {
             n4="";
             layout5.setVisibility(View.INVISIBLE);
@@ -107,7 +107,7 @@ public class SosActivity extends AppCompatActivity {
         else{
             mobileNumberList.add(n4);
         }
-        if(n5==null||n5=="")
+        if(n5==null||n5.equals(""))
         {
             n5="";
             layout6.setVisibility(View.INVISIBLE);

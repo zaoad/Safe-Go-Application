@@ -42,17 +42,17 @@ public class WatchFriend extends AppCompatActivity implements OnMapReadyCallback
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.showInMap);
         mapFragment.getMapAsync(this);
         //Commons.showToast(getApplicationContext(), CurrentLocation.CURR_LAT+"----"+CurrentLocation.CURR_LONGI);
-        friendLatitude=getIntent().getStringExtra(Constants.LATITUDE);
-        friendLongitude=getIntent().getStringExtra(Constants.LONGITUDE);
+        latD=getIntent().getDoubleExtra(Constants.LATITUDE,0.0);
+        longiD=getIntent().getDoubleExtra(Constants.LONGITUDE,0.0);
         String friendPhoneNumber=getIntent().getStringExtra(Constants.FRIEND_NUMBER);
-        latD=Double.parseDouble(friendLatitude);
-        longiD=Double.parseDouble(friendLongitude);
+//        latD=Double.parseDouble(friendLatitude);
+//        longiD=Double.parseDouble(friendLongitude);
         if(latD==0.0||longiD==0.0)
         {
             Commons.showToast(getApplicationContext(),"Your friend location Can not be shown");
             return;
         }
-        markerOptions1=new MarkerOptions().position(new LatLng(latD, longiD)).title("your friends "+friendPhoneNumber+ "location").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        markerOptions1=new MarkerOptions().position(new LatLng(latD, longiD)).title("your friends Phone Number: "+friendPhoneNumber+ "location").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
         gMapButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,7 +82,7 @@ public class WatchFriend extends AppCompatActivity implements OnMapReadyCallback
 //        }
         CameraPosition camera;
         camera = new CameraPosition.Builder()
-                .target(new LatLng(23.79,90.4))
+                .target(new LatLng(latD,longiD))
                 .zoom(15)
                 .bearing(0)
                 .tilt(45)

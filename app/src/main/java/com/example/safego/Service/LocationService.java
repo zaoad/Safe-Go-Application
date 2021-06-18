@@ -11,7 +11,6 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.IBinder;
 import android.util.Log;
-import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
@@ -100,7 +99,7 @@ public class LocationService  extends Service {
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle("User location updating")
                 .setContentText(input)
-                .setSmallIcon(R.drawable.safegolog)
+                .setSmallIcon(R.drawable.safegologo)
                 .setContentIntent(pendingIntent)
                 .build();
 
@@ -124,6 +123,7 @@ public class LocationService  extends Service {
                 String longi = ""+locationResult.getLastLocation().getLongitude();
                 CurrentLocation.CURR_LAT= lat;
                 CurrentLocation.CURR_LONGI = longi;
+                locationSendServer(Double.parseDouble(lat),Double.parseDouble(longi));
                 Commons.showToast(getApplicationContext(),"latitude: "+lat+" Longitude"+longi);
             }
         };
@@ -191,8 +191,9 @@ public class LocationService  extends Service {
         else{
             mobileNumberList.add(n5);
         }
+        String phoneNumber=sharedPrefHelper.getStringFromSharedPref(Constants.MOBILE_NUMBER);
         SendingLocation sendingLocation=new SendingLocation();
-        sendingLocation.setSenderPhoneNumber(Constants.MOBILE_NUMBER);
+        sendingLocation.setSenderPhoneNumber(phoneNumber);
         sendingLocation.setLatitude(latitude);
         sendingLocation.setLongitude(longitude);
         Call<Void> call = api.addSendingLocation(sendingLocation);
@@ -209,7 +210,8 @@ public class LocationService  extends Service {
         });
         for(String receiveLocationStr : mobileNumberList) {
             ReceiveLocation receiveLocation= new ReceiveLocation();
-            receiveLocation.setSenderPhoneNumber(Constants.MOBILE_NUMBER);
+
+            receiveLocation.setSenderPhoneNumber(phoneNumber);
             receiveLocation.setLatitude(latitude);
             receiveLocation.setLongitude(longitude);
             receiveLocation.setReceiverPhoneNumber(receiveLocationStr);
@@ -227,4 +229,5 @@ public class LocationService  extends Service {
             });
         }
     }
+
 }

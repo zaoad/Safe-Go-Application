@@ -1,7 +1,6 @@
 package com.example.safego.Service;
 
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -19,7 +18,7 @@ public class MyMessagingService extends FirebaseMessagingService {
     public void showNotification(String title, String body)
     {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "MyNotifications")
-                .setSmallIcon(R.drawable.safegolog)
+                .setSmallIcon(R.drawable.safegologo)
                 .setContentTitle(title)
                 .setContentText(body)
                 .setAutoCancel(true)

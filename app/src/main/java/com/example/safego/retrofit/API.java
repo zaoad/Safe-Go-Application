@@ -1,7 +1,9 @@
 package com.example.safego.retrofit;
 
+import com.example.safego.domain.ActiveUser;
 import com.example.safego.domain.ReceiveLocation;
 import com.example.safego.domain.SendingLocation;
+import com.example.safego.dto.ActiveUserDto;
 import com.example.safego.dto.CrimeReportDto;
 import com.example.safego.dto.ReceiveLocationDto;
 import com.example.safego.dto.UserInfoDto;
@@ -16,6 +18,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -55,6 +58,14 @@ public interface API {
     @GET("receivinglocations/{phoneNumber}")
     Call<ReceiveLocationDto> getReceiveLocationByPhoneNumber(@Path("phoneNumber") String phoneNumber);
 
+    @POST("active_users")
+    Call<String> addActiveUser(@Body ActiveUser activeUser);
+
+    @GET("active_users/{phoneNumber}")
+    Call<String> getActiveUserByPhoneNumber(@Path("phoneNumber") String phoneNumber);
+
+    @DELETE("active_users/{phoneNumber}")
+    Call<Void> deleteActiveUser(@Path("phoneNumber") String phoneNumber);
     @GET("posts")
     Call<List<Post>> getPosts();
 }

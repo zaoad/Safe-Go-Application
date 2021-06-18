@@ -1,5 +1,6 @@
 package com.example.safego.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -76,6 +77,9 @@ public class ManageFriendList extends AppCompatActivity {
                 sharedPrefHelper.saveDataToSharedPref(Constants.FRIEND5,number5.getText().toString());
                 sharedPrefHelper.saveDataToSharedPref(Constants.FRIEND6,number6.getText().toString());
                 Commons.showToast(getApplicationContext(),"added number to close friend list");
+                Intent mySuperIntent = new Intent(getApplicationContext(), HomePageActivity.class);
+                startActivity(mySuperIntent);
+                finish();
             }
         });
 

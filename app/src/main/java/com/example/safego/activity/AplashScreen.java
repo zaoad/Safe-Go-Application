@@ -34,7 +34,7 @@ public class AplashScreen extends AppCompatActivity {
 //        call.enqueue(new Callback<List<Post>>() {
 //            @Override
 //            public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
-//                if (!response.isSuccessful()) {
+//                if(!response.isSuccessful()) {
 //                    Log.d("Code: " ,response.code()+"");
 //                    return;
 //                }

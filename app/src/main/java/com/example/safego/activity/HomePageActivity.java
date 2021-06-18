@@ -3,6 +3,7 @@ package com.example.safego.activity;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.BadParcelableException;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,6 +19,7 @@ import com.example.safego.R;
 import com.example.safego.Service.LocationService;
 import com.example.safego.Service.LocationTrack;
 import com.example.safego.domain.ReceiveLocation;
+import com.example.safego.dto.ActiveUserDto;
 import com.example.safego.dto.CrimeReportDto;
 import com.example.safego.dto.ReceiveLocationDto;
 import com.example.safego.retrofit.API;
@@ -60,6 +62,8 @@ public class HomePageActivity extends AppCompatActivity {
 
     private TextView watchFriendTxtView;
 
+    private TextView barcodeTxtView;
+
     private String longitude,latitude;
 
     List<CrimeReportDto> crimeReportDtos;
@@ -100,7 +104,8 @@ public class HomePageActivity extends AppCompatActivity {
         manageFriedListTxtView=findViewById(R.id.manageFriendList);
         crimeStatisticsTxtView=findViewById(R.id.crimeStatistics);
         watchFriendTxtView = findViewById(R.id.watch_friend);
-        getFriendLocation();
+        barcodeTxtView = findViewById(R.id.barcode);
+        checkFriendInDanger();
         sosTxtView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,7 +143,13 @@ public class HomePageActivity extends AppCompatActivity {
                 Commons.showToast(getApplicationContext(),"find safest route button click");
             }
         });
-
+        barcodeTxtView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ScannedBarcodeActivity.class);
+                startActivity(intent);
+            }
+        });
         TrackMeTxtView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -209,7 +220,31 @@ public class HomePageActivity extends AppCompatActivity {
         });
 
     }
+    private void checkFriendInDanger()
+    {
+        String phoneNumber=sharedPrefHelper.getStringFromSharedPref(Constants.MOBILE_NUMBER);
+        Call<String> call = api.getActiveUserByPhoneNumber(phoneNumber);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                Object newObj=response.body();
+                if(response.body().equals("true"))
+                {
+                    getFriendLocation();
+                }
+                else
+                {
+                    //Commons.showToast(getApplicationContext(),"username or password incorrect");
+                }
+                Log.d("LogInActivity", response.toString());
+            }
 
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+
+            }
+        });
+    }
     private void getFriendLocation() {
         String phoneNumber=sharedPrefHelper.getStringFromSharedPref(Constants.MOBILE_NUMBER);
         Call<ReceiveLocationDto> call=api.getReceiveLocationByPhoneNumber(phoneNumber);
@@ -221,13 +256,16 @@ public class HomePageActivity extends AppCompatActivity {
                 if(receiveLocationDto == null ||receiveLocationDto.getSenderPhoneNumber().equals("None"))
                 {
                    isFriendInDanger=false;
+                    watchFriendTxtView.setBackground(getResources().getDrawable(R.drawable.view_background));
                 }
                 else{
                     friendPhoneNumber=receiveLocationDto.getSenderPhoneNumber();
                     friendLatitude=receiveLocationDto.getLatitude();
                     friendLongitude=receiveLocationDto.getLongitude();
                     isFriendInDanger=true;
-                    watchFriendTxtView.setText("watch your friends 1");
+                    watchFriendTxtView.setText("watch your friends");
+                    watchFriendTxtView.setBackground(getResources().getDrawable(R.drawable.view_background_on_click));
+
                 }
             }
 

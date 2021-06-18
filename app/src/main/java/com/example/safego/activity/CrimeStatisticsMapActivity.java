@@ -41,7 +41,7 @@ public class CrimeStatisticsMapActivity extends AppCompatActivity implements OnM
     private List<MarkerOptions> markerOptionsList;
 
     MapFragment mapFragment;
-
+    boolean isMapOpen=false;
     List<CrimeReportDto> crimeReportDtos;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,7 +49,7 @@ public class CrimeStatisticsMapActivity extends AppCompatActivity implements OnM
         setContentView(R.layout.crime_statistics_activity);
         api= RetrofitInstance.getRetrofitInstance().create(API.class);
         markerOptionsList=new ArrayList<>();
-        getCrimeReports();
+
 //        crimeReportDtos= (List<CrimeReportDto>) getIntent().getSerializableExtra(Constants.CRIME_DETAILS);
         mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.showInMap);
         mapFragment.getMapAsync(this);
@@ -85,6 +85,7 @@ public class CrimeStatisticsMapActivity extends AppCompatActivity implements OnM
             @Override
             public void onResponse(Call<List<CrimeReportDto>> call, Response<List<CrimeReportDto>> response) {
                 crimeReportDtos= response.body();
+                addGoogleMarkers();
                 Log.e("crime stat activity","success");
 //                addGoogleMarkers();
             }
@@ -104,31 +105,10 @@ public class CrimeStatisticsMapActivity extends AppCompatActivity implements OnM
     @Override
     public void onMapReady(GoogleMap gmap) {
         googleMap = gmap;
-        for(CrimeReportDto crimeReportDto : crimeReportDtos)
-        {
-            if(!(crimeReportDto.getLatitude()==0||crimeReportDto.getLongitude()==0))
-            {
-                double latitude=crimeReportDto.getLatitude();
-                double longitude = crimeReportDto.getLongitude();
-
-                String details =crimeReportDto.getCrimeType();
-                String time= crimeReportDto.getTime();
-                if(details==null)
-                {
-                    details=" asdf";
-                }
-                if(time==null)
-                {
-                    time="";
-                }
-                markerOptions1=new MarkerOptions().position(new LatLng(latitude, longitude)).title(details+" at "+time).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
-//
-//                MarkerOptions markerOption = new MarkerOptions().position(new LatLng(latitude, longitude)).title(details).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
-//                markerOptionsList.add(markerOption);
-                googleMap.addMarker(markerOptions1);
-
-            }
+        if(!isMapOpen) {
+            getCrimeReports();
         }
+
 //        addGoogleMarkers();
 //        try {
 //        googleMap.addMarker(markerOptions1);
@@ -169,6 +149,30 @@ public class CrimeStatisticsMapActivity extends AppCompatActivity implements OnM
     }
     public void addGoogleMarkers()
     {
+        for(CrimeReportDto crimeReportDto : crimeReportDtos)
+        {
+            if(!(crimeReportDto.getLatitude()==0||crimeReportDto.getLongitude()==0))
+            {
+                double latitude=crimeReportDto.getLatitude();
+                double longitude = crimeReportDto.getLongitude();
+
+                String details =crimeReportDto.getCrimeType();
+                String time= crimeReportDto.getTime();
+                if(details==null)
+                {
+                    details=" asdf";
+                }
+                if(time==null)
+                {
+                    time="";
+                }
+                markerOptions1=new MarkerOptions().position(new LatLng(latitude, longitude)).title(details+" at "+time).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+//
+//                MarkerOptions markerOption = new MarkerOptions().position(new LatLng(latitude, longitude)).title(details).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+//                markerOptionsList.add(markerOption);
+                googleMap.addMarker(markerOptions1);
+            }
+        }
 
 //        markerOptions1=new MarkerOptions().position(new LatLng(23.8, 90.4)).title("sonamoni").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
 //

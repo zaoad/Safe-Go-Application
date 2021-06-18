@@ -51,6 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="15sp"
+        android:inputType="textPassword"
         android:hint="Password"
         android:backgroundTint="@color/blue"
         android:fontFamily="@font/titillium_regular"

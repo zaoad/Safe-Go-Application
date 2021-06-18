@@ -51,5 +51,8 @@ dependencies {
     //for retrofit
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
 
+    //barcode
+    implementation 'com.google.android.gms:play-services-vision:20.1.3'
+
 
 }
