@@ -12,6 +12,8 @@ import com.example.safego.R;
 import com.example.safego.domain.Post;
 import com.example.safego.retrofit.API;
 import com.example.safego.retrofit.RetrofitInstance;
+import com.example.safego.utils.Constants;
+import com.example.safego.utils.SharedPrefHelper;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
@@ -26,6 +28,8 @@ import static com.example.safego.utils.Constants.SPLASH_TIME;
 
 public class AplashScreen extends AppCompatActivity {
     private API api;
+    SharedPrefHelper sharedPrefHelper;
+    private String is_log_in="0";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,14 +53,9 @@ public class AplashScreen extends AppCompatActivity {
 //            }
 //        });
         setContentView(R.layout.activity_splash_screen);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent mySuperIntent = new Intent(getApplicationContext(), LogIn.class);
-                startActivity(mySuperIntent);
-                finish();
-            }
-        }, SPLASH_TIME);
+        sharedPrefHelper = new SharedPrefHelper(getApplicationContext());
+        is_log_in=sharedPrefHelper.getStringFromSharedPref(Constants.IS_LOG_IN);
+        //is_log_in="1";
         FirebaseMessaging.getInstance().subscribeToTopic("weather")
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -67,6 +66,27 @@ public class AplashScreen extends AppCompatActivity {
                         }
                     }
                 });
+        if(is_log_in==null || is_log_in.equals("0"))
+        {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent mySuperIntent = new Intent(getApplicationContext(), LogIn.class);
+                    startActivity(mySuperIntent);
+                    finish();
+                }
+            }, SPLASH_TIME);
+        }
+        else {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Intent mySuperIntent = new Intent(getApplicationContext(), HomePageActivity.class);
+                    startActivity(mySuperIntent);
+                    finish();
+                }
+            }, SPLASH_TIME);
+        }
 
 
     }

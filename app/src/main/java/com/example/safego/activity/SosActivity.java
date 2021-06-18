@@ -70,7 +70,7 @@ public class SosActivity extends AppCompatActivity {
         n5=sharedPrefHelper.getStringFromSharedPref(Constants.FRIEND5);
         n6=sharedPrefHelper.getStringFromSharedPref(Constants.FRIEND6);
         mobileNumberList= new ArrayList<>();
-        if(n1==null||n1=="")
+        if(n1==null||n1.equals(""))
         {
             n1="";
             layout2.setVisibility(View.INVISIBLE);
@@ -234,7 +234,7 @@ public class SosActivity extends AppCompatActivity {
     private void sendNotification() {
         String phoneNumber=sharedPrefHelper.getStringFromSharedPref(Constants.MOBILE_NUMBER);
         String name=sharedPrefHelper.getStringFromSharedPref(Constants.NAME);
-        String notificationStr="Your friend "+name+" Phone Number: "+ phoneNumber;
+        String notificationStr="Your friend "+name+" Phone Number: "+ phoneNumber+"in danger";
         for(String recieverNumber: mobileNumberList)
         {
             Call<Void> call=api.sendNotificationToFriends(recieverNumber,notificationStr);
@@ -272,5 +272,11 @@ public class SosActivity extends AppCompatActivity {
             Log.v("TAG","Permission is granted");
             return true;
         }
+    }
+    @Override
+    public void onBackPressed() {
+        Intent mySuperIntent = new Intent(getApplicationContext(), HomePageActivity.class);
+        startActivity(mySuperIntent);
+        finish();
     }
 }

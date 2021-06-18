@@ -241,4 +241,10 @@ public class ReportCrime extends AppCompatActivity {
         Intent intent=new Intent(getApplicationContext(),HomePageActivity.class);
         startActivity(intent);
     }
+    @Override
+    public void onBackPressed() {
+        Intent mySuperIntent = new Intent(getApplicationContext(), HomePageActivity.class);
+        startActivity(mySuperIntent);
+        finish();
+    }
 }

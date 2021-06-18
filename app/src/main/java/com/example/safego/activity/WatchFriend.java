@@ -89,6 +89,12 @@ public class WatchFriend extends AppCompatActivity implements OnMapReadyCallback
                 .build();
         googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(camera));
     }
+    @Override
+    public void onBackPressed() {
+        Intent mySuperIntent = new Intent(getApplicationContext(), HomePageActivity.class);
+        startActivity(mySuperIntent);
+        finish();
+    }
 
 }
 

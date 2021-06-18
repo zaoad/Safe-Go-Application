@@ -84,4 +84,10 @@ public class ManageFriendList extends AppCompatActivity {
         });
 
     }
+    @Override
+    public void onBackPressed() {
+        Intent mySuperIntent = new Intent(getApplicationContext(), HomePageActivity.class);
+        startActivity(mySuperIntent);
+        finish();
+    }
 }

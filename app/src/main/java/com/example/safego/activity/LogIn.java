@@ -144,6 +144,7 @@ public class LogIn extends AppCompatActivity {
                 if(response.body().equals("true"))
                 {
                     sharedPrefHelper.saveDataToSharedPref(Constants.MOBILE_NUMBER,phoneNumberStr);
+                    sharedPrefHelper.saveDataToSharedPref(Constants.IS_LOG_IN,"1");
                     Intent mySuperIntent = new Intent(getApplicationContext(), HomePageActivity.class);
                     startActivity(mySuperIntent);
                     finish();

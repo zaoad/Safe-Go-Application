@@ -91,6 +91,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         gMapButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                    if(CurrentLocation.CURR_LAT.equals("")||CurrentLocation.CURR_LONGI.equals(""))
+                    {
+                        Commons.showToast(getApplicationContext(),"please turn on your gps");
+                    }
                     String destination="http://maps.google.com/maps?&daddr="+CurrentLocation.CURR_LAT+","+CurrentLocation.CURR_LONGI;
                     Intent intend = new Intent(Intent.ACTION_VIEW, Uri.parse(destination));
                     startActivity(intend);
@@ -106,7 +110,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         n4=sharedPrefHelper.getStringFromSharedPref(Constants.FRIEND4);
         n5=sharedPrefHelper.getStringFromSharedPref(Constants.FRIEND5);
         List<String> mobileNumberList= new ArrayList<>();
-        if(n1==null||n1=="")
+        if(n1==null||n1.equals(""))
         {
             n1="";
 
@@ -114,28 +118,28 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         else{
             mobileNumberList.add(n1);
         }
-        if(n2==null||n2=="")
+        if(n2==null||n2.equals(""))
         {
             n2="";
         }
         else{
             mobileNumberList.add(n2);
         }
-        if(n3==null||n3=="")
+        if(n3==null||n3.equals(""))
         {
             n3="";
         }
         else{
             mobileNumberList.add(n3);
         }
-        if(n4==null||n4=="")
+        if(n4==null||n4.equals(""))
         {
             n4="";
         }
         else{
             mobileNumberList.add(n4);
         }
-        if(n5==null||n5=="")
+        if(n5==null||n5.equals(""))
         {
             n5="";
         }
@@ -219,12 +223,23 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 //            finish();
 //        }
         CameraPosition camera;
-        camera = new CameraPosition.Builder()
-                .target(new LatLng(Double.parseDouble(CurrentLocation.CURR_LAT), Double.parseDouble(CurrentLocation.CURR_LONGI)))
-                .zoom(15)
-                .bearing(0)
-                .tilt(45)
-                .build();
+        if(CurrentLocation.CURR_LAT.equals("")||CurrentLocation.CURR_LONGI.equals(""))
+        {
+            camera = new CameraPosition.Builder()
+                    .target(new LatLng(23.8,90.4))
+                    .zoom(15)
+                    .bearing(0)
+                    .tilt(45)
+                    .build();
+        }
+        else {
+            camera = new CameraPosition.Builder()
+                    .target(new LatLng(Double.parseDouble(CurrentLocation.CURR_LAT), Double.parseDouble(CurrentLocation.CURR_LONGI)))
+                    .zoom(15)
+                    .bearing(0)
+                    .tilt(45)
+                    .build();
+        }
         googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(camera));
     }
     public void locationServiceOn()

@@ -1,5 +1,6 @@
 package com.example.safego.activity;
 
+import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
 import android.os.Bundle;
@@ -182,6 +183,11 @@ public class CrimeStatisticsMapActivity extends AppCompatActivity implements OnM
 //        onMapReady(googleMap);
 
     }
-
+    @Override
+    public void onBackPressed() {
+        Intent mySuperIntent = new Intent(getApplicationContext(), HomePageActivity.class);
+        startActivity(mySuperIntent);
+        finish();
+    }
 }
 

@@ -7,6 +7,9 @@ import android.os.BadParcelableException;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -177,11 +180,13 @@ public class HomePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(isFriendInDanger) {
-                    Intent mySuperIntent = new Intent(getApplicationContext(), WatchFriend.class);
-                    mySuperIntent.putExtra(Constants.LATITUDE,friendLatitude);
-                    mySuperIntent.putExtra(Constants.LONGITUDE,friendLongitude);
-                    mySuperIntent.putExtra(Constants.FRIEND_NUMBER,friendPhoneNumber);
-                    startActivity(mySuperIntent);
+                    if(!(friendPhoneNumber==null||friendLatitude==0.0||friendLongitude==0.0)) {
+                        Intent mySuperIntent = new Intent(getApplicationContext(), WatchFriend.class);
+                        mySuperIntent.putExtra(Constants.LATITUDE, friendLatitude);
+                        mySuperIntent.putExtra(Constants.LONGITUDE, friendLongitude);
+                        mySuperIntent.putExtra(Constants.FRIEND_NUMBER, friendPhoneNumber);
+                        startActivity(mySuperIntent);
+                    }
                 }
             }
         });
@@ -379,6 +384,38 @@ public class HomePageActivity extends AppCompatActivity {
             }
         }
 
+
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater =getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.nav_log_out:
+                sharedPrefHelper.saveDataToSharedPref(Constants.IS_LOG_IN,"0");
+                clear();
+                Intent intent = new Intent(getApplicationContext(),LogIn.class);
+                startActivity(intent);
+                finish();
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+    void clear()
+    {
+        sharedPrefHelper.saveDataToSharedPref(Constants.FRIEND1,"");
+        sharedPrefHelper.saveDataToSharedPref(Constants.FRIEND2,"");
+        sharedPrefHelper.saveDataToSharedPref(Constants.FRIEND3,"");
+        sharedPrefHelper.saveDataToSharedPref(Constants.FRIEND4,"");
+        sharedPrefHelper.saveDataToSharedPref(Constants.FRIEND5,"");
+        sharedPrefHelper.saveDataToSharedPref(Constants.FRIEND6,"");
+        sharedPrefHelper.saveDataToSharedPref(Constants.CRIME_DETAILS,"");
+        sharedPrefHelper.saveDataToSharedPref(Constants.TIME,"");
 
     }
 }

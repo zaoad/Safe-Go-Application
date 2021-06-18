@@ -91,7 +91,7 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
         n4=sharedPrefHelper.getStringFromSharedPref(Constants.FRIEND4);
         n5=sharedPrefHelper.getStringFromSharedPref(Constants.FRIEND5);
         List<String> mobileNumberList= new ArrayList<>();
-        if(n1==null||n1=="")
+        if(n1==null||n1.equals(""))
         {
             n1="";
 
@@ -99,28 +99,28 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
         else{
             mobileNumberList.add(n1);
         }
-        if(n2==null||n2=="")
+        if(n2==null||n2.equals(""))
         {
             n2="";
         }
         else{
             mobileNumberList.add(n2);
         }
-        if(n3==null||n3=="")
+        if(n3==null||n3.equals(""))
         {
             n3="";
         }
         else{
             mobileNumberList.add(n3);
         }
-        if(n4==null||n4=="")
+        if(n4==null||n4.equals(""))
         {
             n4="";
         }
         else{
             mobileNumberList.add(n4);
         }
-        if(n5==null||n5=="")
+        if(n5==null||n5.equals(""))
         {
             n5="";
         }
@@ -243,6 +243,12 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         initialiseDetectorsAndSources();
+    }
+    @Override
+    public void onBackPressed() {
+        Intent mySuperIntent = new Intent(getApplicationContext(), HomePageActivity.class);
+        startActivity(mySuperIntent);
+        finish();
     }
 
 }

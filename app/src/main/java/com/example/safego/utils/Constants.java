@@ -12,6 +12,7 @@ public class Constants {
     public static final String CRIME_REPORTS = "CRIME REPORTS" ;
     public static final String FRIEND_NUMBER = "FRIEND NUMBER";
     public static int SPLASH_TIME = 1500;
+    public static final String IS_LOG_IN = "is log in";
 
     public static  final String IS_ONLINE = "is_online";
     public static final String START_FORGROUND_ACTION = "START_FORGROUND_ACTION" ;
