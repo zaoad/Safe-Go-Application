@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="@dimen/activity_horizontal_margin"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:context=".activity.ScannedBarcodeActivity">
+
+    <SurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:id="@+id/txtBarcodeValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="20dp"
+        android:text="No QR Code Detected"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+    <Button
+        android:id="@+id/btnAction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:background="@drawable/button_background_blue"
+        android:textColor="@color/white"
+        android:text="Send Bus Info"/>
+</RelativeLayout>

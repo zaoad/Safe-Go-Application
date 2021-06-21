@@ -20,8 +20,8 @@ public class Constants {
 
     public static final String NOTIFICATION_TITLE = "NOTIFICATION_TITLE";
 
-    public static final int FASTEST_INTERVAL_TIME = 10000;
-    public static final int INTERVAL_TIME = 15000;
+    public static final int FASTEST_INTERVAL_TIME = 20000;
+    public static final int INTERVAL_TIME = 30000;
 
     //
     public static String START_TRACKING="Start Tracking";
