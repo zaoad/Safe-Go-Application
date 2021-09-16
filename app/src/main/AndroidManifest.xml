@@ -52,6 +52,7 @@
         <activity android:name=".activity.PickUplocation"/>
         <activity android:name=".activity.SosActivity"/>
         <activity android:name=".activity.ScannedBarcodeActivity"/>
+        <activity android:name=".activity.SafeGoMap"/>
         <activity android:name=".activity.AplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
