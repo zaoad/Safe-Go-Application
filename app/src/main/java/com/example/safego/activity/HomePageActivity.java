@@ -143,7 +143,9 @@ public class HomePageActivity extends AppCompatActivity {
         findSafeRouteTxtView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Commons.showToast(getApplicationContext(),"find safest route button click");
+                Intent mySuperIntent = new Intent(getApplicationContext(), SafeGoMap.class);
+//                mySuperIntent.putExtra(Constants.CRIME_REPORTS, (Serializable) crimeReportDtos);
+                startActivity(mySuperIntent);
             }
         });
         barcodeTxtView.setOnClickListener(new View.OnClickListener() {
