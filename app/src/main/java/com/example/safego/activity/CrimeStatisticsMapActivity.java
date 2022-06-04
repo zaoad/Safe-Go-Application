@@ -158,16 +158,17 @@ public class CrimeStatisticsMapActivity extends AppCompatActivity implements OnM
                 double longitude = crimeReportDto.getLongitude();
 
                 String details =crimeReportDto.getCrimeType();
+                String place = crimeReportDto.getArea();
                 String time= crimeReportDto.getTime();
                 if(details==null)
                 {
-                    details=" asdf";
+                    details="";
                 }
                 if(time==null)
                 {
                     time="";
                 }
-                markerOptions1=new MarkerOptions().position(new LatLng(latitude, longitude)).title(details+" at "+time).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+                markerOptions1=new MarkerOptions().position(new LatLng(latitude, longitude)).title(details+" at "+place+" date"+time).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
 //
 //                MarkerOptions markerOption = new MarkerOptions().position(new LatLng(latitude, longitude)).title(details).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
 //                markerOptionsList.add(markerOption);
