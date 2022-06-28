@@ -143,7 +143,11 @@ public class HomePageActivity extends AppCompatActivity {
         findSafeRouteTxtView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mySuperIntent = new Intent(getApplicationContext(), SafeGoMap.class);
+                sharedPrefHelper.saveDataToSharedPref(Constants.SOURCE_LATITUDE,"0.0");
+                sharedPrefHelper.saveDataToSharedPref(Constants.SOURCE_LONGITUDE,"0.0");
+                sharedPrefHelper.saveDataToSharedPref(Constants.DESTINATION_LONGITUDE,"0.0");
+                sharedPrefHelper.saveDataToSharedPref(Constants.DESTINATION_LONGITUDE,"0.0");
+                Intent mySuperIntent = new Intent(getApplicationContext(), PickLocationSafeRoute.class);
 //                mySuperIntent.putExtra(Constants.CRIME_REPORTS, (Serializable) crimeReportDtos);
                 startActivity(mySuperIntent);
             }

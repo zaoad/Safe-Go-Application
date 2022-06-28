@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:textSize="15sp"
         android:inputType="number"
-        android:hint="UserName"
+        android:hint="Phone Number"
         android:backgroundTint="@color/blue"
         android:fontFamily="@font/titillium_regular"
         android:textCursorDrawable="@drawable/cursor"

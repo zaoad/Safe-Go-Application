@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".activity.PickLocationSafeRoute"
+    android:orientation="vertical"
+    android:gravity="center">
+    <Button
+        android:id="@+id/sourceLocationBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_background_blue"
+        android:text="pick source location"
+        android:textColor="@color/white"
+        android:fontFamily="@font/titillium_semibold"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"/>
+    <TextView
+        android:id="@+id/sourceLatLong"
+        android:layout_marginTop="@dimen/topmargin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="15sp"
+        android:fontFamily="@font/titillium_semibold"
+        android:textColor="@color/black"
+        android:gravity="center"/>
+    <Button
+        android:id="@+id/destinationLocationBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_background_blue"
+        android:text="pick destination location"
+        android:textColor="@color/white"
+        android:fontFamily="@font/titillium_semibold"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"/>
+    <TextView
+        android:id="@+id/destinationLatLong"
+        android:layout_marginTop="@dimen/topmargin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="15sp"
+        android:fontFamily="@font/titillium_semibold"
+        android:textColor="@color/black"
+        android:gravity="center"/>
+    <Button
+        android:id="@+id/findSafeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_background_blue"
+        android:text="Find safest route"
+        android:textColor="@color/white"
+        android:fontFamily="@font/titillium_semibold"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"/>
+</LinearLayout>

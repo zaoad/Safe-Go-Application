@@ -6,6 +6,10 @@ public class Constants {
     public static final String SHARED_PREF_NAME ="MY_PREF" ;
     public static final String LONGITUDE = "LONGITUDE";
     public static final String LATITUDE = "LATITUDE";
+    public static final String SOURCE_LONGITUDE = "SOURCE LONGITUDE";
+    public static final String SOURCE_LATITUDE = "SOURCE LATITUDE";
+    public static final String DESTINATION_LONGITUDE = "DESTINATION LONGITUDE";
+    public static final String DESTINATION_LATITUDE = "DESTINATION LATITUDE";
     public static final String CRIME_DETAILS = "CRIME DETAILS" ;
     public static final String TIME = "TIME" ;
     public static final String MOBILE_NUMBER = "PHONE NUMBER";
