@@ -414,12 +414,12 @@ public class HomePageActivity extends AppCompatActivity {
     }
     void clear()
     {
-        sharedPrefHelper.saveDataToSharedPref(Constants.FRIEND1,"");
-        sharedPrefHelper.saveDataToSharedPref(Constants.FRIEND2,"");
-        sharedPrefHelper.saveDataToSharedPref(Constants.FRIEND3,"");
-        sharedPrefHelper.saveDataToSharedPref(Constants.FRIEND4,"");
-        sharedPrefHelper.saveDataToSharedPref(Constants.FRIEND5,"");
-        sharedPrefHelper.saveDataToSharedPref(Constants.FRIEND6,"");
+//        sharedPrefHelper.saveDataToSharedPref(Constants.FRIEND1,"");
+//        sharedPrefHelper.saveDataToSharedPref(Constants.FRIEND2,"");
+//        sharedPrefHelper.saveDataToSharedPref(Constants.FRIEND3,"");
+//        sharedPrefHelper.saveDataToSharedPref(Constants.FRIEND4,"");
+//        sharedPrefHelper.saveDataToSharedPref(Constants.FRIEND5,"");
+//        sharedPrefHelper.saveDataToSharedPref(Constants.FRIEND6,"");
         sharedPrefHelper.saveDataToSharedPref(Constants.CRIME_DETAILS,"");
         sharedPrefHelper.saveDataToSharedPref(Constants.TIME,"");
 
