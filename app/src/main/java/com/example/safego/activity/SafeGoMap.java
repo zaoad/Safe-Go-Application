@@ -71,7 +71,7 @@ public class SafeGoMap extends AppCompatActivity {
             finish();
         }
         else{
-            serverUrl = "http://137.184.224.153/"+sourceLongi+","+sourceLat+"/"+destinationLongi+","+destinationLat;
+            serverUrl = "http://159.223.208.19/"+sourceLongi+","+sourceLat+"/"+destinationLongi+","+destinationLat;
 
         }
         wb = (WebView) findViewById(R.id.webView1);
